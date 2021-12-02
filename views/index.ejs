@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Budget Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/normalize.css">    
+    <link rel="stylesheet" href="/css/skeleton.css">
+  </head>
+  <body>
+    <!-- <div style="background-color:<%=sum>=0?'green':'red'%>;color:white;text-align:center;"> Bank Account Balance: $<%= sum %> </div> -->
+    <!-- <div id="balance"> <%= sum %> </div> -->
+    <div class="container">
+        <h1>Budgtr ALL</h1>
+        <nav>
+            <a href="/new">Create new record</a>
+        </nav>
+        <div class="row">
+        <div class="twelve column">
+        <table class="u-full-width">
+            <tr>
+                <th>Bank Account Balance:</th>
+                <th><div id="balance" style="text-align:center;"> <%= sum %> </div></th>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <% for (let i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td><%= data[i].date %></td>
+                    <td>
+                        <a href="/<%=i%>">
+                            <%= data[i].name %>
+                          </a>
+                    </td>
+                    <td><%= data[i].amount %></td>
+                </tr>
+                <% } %>
+        </table>
+    </div>
+    </div>
+    </div>
+    <script>
+        $(() => {
+            if (parseInt($('#balance').text())<0) {
+                $('#balance').css('background-color','red');
+            }
+            else if (parseInt($('#balance').text())>=0 && parseInt($('#balance').text())<=1000) {
+             $('#balance').css('background-color','green');
+            }
+            else if(parseInt($('#balance').text())>1000) {
+             $('#balance').css('background-color','blue');
+            }
+         
+        });
+     </script>
+  </body>
+</html>

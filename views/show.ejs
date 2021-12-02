@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Record Page</title>
+    <link rel="stylesheet" href="/css/normalize.css">    
+    <link rel="stylesheet" href="/css/skeleton.css">  
+  </head>
+  <body>
+    <div classname="container">
+        <h1><%= data.name %></h1>
+        <form action='/'>
+            <button type="submit">Back</button>
+         </form>
+         <table>
+             <tr>
+                 <td><p style="font-weight:bold">Date:</p></td>
+                 <td><p><%= data.date %></p></td>
+             </tr>
+             <tr>
+                <td><p style="font-weight:bold">Name:</p></td>
+                <td><p><%= data.name %></p></td>
+            </tr>
+            <tr>
+                <td><p style="font-weight:bold">From:</p></td>
+                <td><p><%= data.from %></p></td>
+            </tr>
+            <tr>
+                <td><p style="font-weight:bold">Amount:</p></td>
+                <td><p><%= data.amount %></p></td>
+            </tr>
+            <tr>
+                <td><p style="font-weight:bold">Tags:</p></td>
+                <td><p><%= data.tags %></p></td>
+            </tr>
+         </table>
+    </div>
+  </body>
+</html>
